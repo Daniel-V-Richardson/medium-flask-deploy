@@ -10,7 +10,6 @@ Cython==0.29.22
 dbus-python==1.2.16
 distlib==0.3.0
 distro==1.4.0
-distro-info===0.23ubuntu1
 entrypoints==0.3
 eyeD3==0.8.10
 filelock==3.0.12
