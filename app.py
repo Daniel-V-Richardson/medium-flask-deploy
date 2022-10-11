@@ -7,10 +7,12 @@ app = Flask(__name__)
 # if ENV=='dev':
 #     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:dan@localhost/posts'
 # else:
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://pzxeczwkjkqizr:d93d63b7ad1aa07a3c2747a2f89d8e1184a79c3904600af605e7db19b8adae14@ec2-35-170-146-54.compute-1.amazonaws.com:5432/d7pe4psh7iv51e'
-db = SQLAlchemy(app)
-db.create_all()
+if ENV == 'dev':
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://pzxeczwkjkqizr:d93d63b7ad1aa07a3c2747a2f89d8e1184a79c3904600af605e7db19b8adae14@ec2-35-170-146-54.compute-1.amazonaws.com:5432/d7pe4psh7iv51e'
+    db = SQLAlchemy(app)
+    db.create_all()
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://pzxeczwkjkqizr:d93d63b7ad1aa07a3c2747a2f89d8e1184a79c3904600af605e7db19b8adae14@ec2-35-170-146-54.compute-1.amazonaws.com:5432/d7pe4psh7iv51e'
 
 
 class BlogPost(db.Model):
